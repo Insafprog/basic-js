@@ -14,6 +14,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getSeason(date) {
   if (date === undefined) return 'Unable to determine the time of year!'
   try {
+    date.getTime()
     const month = date.getMonth()
     if (month === 11 || month < 2) return 'winter'
     if (1 < month && month < 5) return 'spring'
@@ -27,5 +28,3 @@ function getSeason(date) {
 module.exports = {
   getSeason
 };
-
-console.log(getSeason(() => new Date()))
